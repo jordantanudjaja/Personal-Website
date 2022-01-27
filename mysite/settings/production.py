@@ -1,9 +1,19 @@
 import os
-import django_heroku
+import dj_databse_url
 
 SECRET_KEY = os.environ.get('SECRET_KEY_PROD')
 DEBUG = True
 ALLOWED_HOSTS = ['127.0.0.1', 'jordantanudjaja.herokuapp.com']
+
+# Postgres Database to be submitted in Heroku
+DATABASES = {   # Taken from base.py
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+db_from_env = dj_databse_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env) # Updating DATABASES to include the Postgres database set to me by Heroku
 
 # AWS S3 parameters
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
