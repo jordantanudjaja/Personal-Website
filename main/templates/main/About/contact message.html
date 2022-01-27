@@ -1,0 +1,38 @@
+{% extends 'main/detailsbase.html' %}
+
+<!-- Head -->
+{% block title %}Contact Message Page{% endblock %}
+
+{% block additional_styling %}
+    #submit_button {
+        background-color: #596A75;
+        color: #FFFFFF;
+    }
+
+    #submit_button:hover {
+        background-color: #000000;
+    }
+{% endblock %}
+<!-- End Head -->
+
+<!-- Body -->
+<!-- Header -->
+{% block bg_image %}background-image: url('https://mdbootstrap.com/img/new/slides/054.jpg');{% endblock %}
+{% block page_name %}{{ jordan_message }}{% endblock %}
+
+<!-- Back Button -->
+{% block url_route %}/about{% endblock %}
+{% block button_name %}Back to About{% endblock %}
+
+<!-- Details -->
+{% block details %}
+    <div id="contact-section" style="display:block; text-align:center;">
+        <h3 class="text-center"><b>Want to send another message?</b></h3>
+        <form action="" method="POST" style="display:inline-block; width:clamp(250px, 55%, 55%);">
+            {% csrf_token %}
+            {{ new_form.as_p }}
+            <input type="submit" value="Submit" id="submit_button" class="btn btn-dark btn-rounded btn-lg" style="">
+        </form>
+    </div>
+{% endblock %}
+<!-- End Body -->

@@ -1,0 +1,95 @@
+{% extends 'main/detailsbase.html' %}
+
+<!-- Head -->
+{% block title %}Project Details Page{% endblock %}
+
+{% block additional_styling %}
+    .project-content {
+        margin-bottom: 2em;
+    }
+
+    #tools {
+        border-style: solid;
+        border-color: gray;
+    }
+
+    h2 {
+        font-size: clamp(1.5em, 1.5vw, 2em);
+    }
+
+    h4 {
+        font-size: clamp(1em, 1.5vw, 1.5em);
+    }
+
+    p, li {
+        font-size: clamp(0.5em, 1vw, 1em);
+    }
+{% endblock %}
+<!-- End Head -->
+
+<!-- Body -->
+<!-- Header -->
+{% block bg_image %}background-image: url({{ background_image }});{% endblock %}
+{% block page_name %}Project Details{% endblock %}
+
+<!-- Back Button -->
+{% block url_route %}/projects#project_list{% endblock %}
+{% block button_name %}Back to Projects{% endblock %}
+
+<!-- Details -->
+{% block details %}
+    <div class="row row-cols-1 row-cols-md-1 g-4 project-content" style="margin-bottom:-0.5em;">
+        <h2 class="text-center">
+            <a href="{{ github_link }}" target="_blank" rel="noopener noreferrer">
+                <b>{{ title }}</b>
+            </a>
+        </h2>
+    </div>
+    <div class="row row-cols-1 row-cols-md-2 g-4 project-content">
+        <div class="col">
+            <img src="{{ top_picture }}" class="card-img-top" style="width:100%;">
+        </div>
+
+        <div class="col">
+            <div class="text-center">
+                <h4><b>Description</b></h4>
+                <p>{{ description }}</p>
+
+                <h4><b>Goals</b></h4>
+                <ol class="text-start" style="list-style-position: inside;">
+                    {% for goal in goals %}
+                        <li>{{ goal }}</li>
+                    {% endfor %}
+                </ol>
+
+                <h4><b>Tools Used</b></h4>
+                <p id="tools">{{ tools_used }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-1 g-4 project-content">
+        <img src="{{ middle_picture }}">
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 g-4 project-content">
+        <div class="col">
+            <div class="text-center">
+                <h4><b>Context / Inspiration</b></h4>
+                <p>{{ context }}</p>
+
+                <h4><b>Potential Improvements</b></h4>
+                <ol class="text-start" style="list-style-position: inside;">
+                  {% for improvement in potential_improvements %}
+                      <li>{{ improvement }}</li>
+                  {% endfor %}
+                </ol>
+            </div>
+        </div>
+
+        <div class="col">
+            <img src="{{ bottom_picture }}" class="card-img-top" style="width:100%;">
+        </div>
+    </div>
+{% endblock %}
+<!-- End Body -->

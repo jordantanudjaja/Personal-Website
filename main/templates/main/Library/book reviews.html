@@ -1,0 +1,43 @@
+{% extends 'main/detailsbase.html' %}
+
+<!-- Head -->
+{% block title %}Book Reviews Page{% endblock %}
+<!-- End Head -->
+
+<!-- Body -->
+<!-- Header -->
+{% block bg_image %}background-image: url({{ background_image }});{% endblock %}
+{% block page_name %}{{ genre }}{% endblock %}
+
+<!-- Back Button -->
+{% block url_route %}/library#book_genres{% endblock %}
+{% block button_name %}Back to Library{% endblock %}
+
+<!-- Details -->
+{% block details %}
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        {% for book in books %}
+            <div class="col">
+                <div class="card mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-5">
+                            <img id="book_image" src="{{ book.picture.url }}" class="img-fluid rounded-start"/>
+                        </div>
+                        <div id="book_review_content" class="col-md-7">
+                            <div class="card-body">
+                                <h5 class="card-title" style="font-size:clamp(0.8em, 1.3vw, 1.5em);"><b>{{ book.title }}</b></h5>
+                                <span class="card-text" style="font-size:clamp(0.6em, 1.1vw, 1em);"><b>Author: </b>{{ book.author }}</span>
+                                <br>
+                                <span class="card-text" style="font-size:clamp(0.6em, 1.1vw, 1em);"><b>Book Review:</b></span>
+                                <p class="card-text" style="font-size:clamp(0.5em, 1vw, 1em);">
+                                    {{ book.book_review }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+<!-- End Body -->

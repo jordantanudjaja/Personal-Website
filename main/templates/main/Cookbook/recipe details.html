@@ -1,0 +1,124 @@
+{% extends 'main/detailsbase.html' %}
+
+<!-- Head -->
+{% block title %}Recipe Page{% endblock %}
+
+{% block additional_styling %}
+    h2 {
+        font-size: clamp(1em, 2vw, 2em);
+    }
+
+    h4 {
+        font-size: clamp(1em, 1.5vw, 1.5em);
+    }
+
+    i {
+        font-size: clamp(0.9rem, 1.5vw, 1.3rem);
+    }
+
+    ul, ol {
+        font-size: clamp(0.7rem, 1.5vw, 1rem);
+        margin-left: -0.5em;
+    }
+{% endblock %}
+<!-- End Head -->
+
+<!-- Body -->
+<!-- Header -->
+{% block bg_image %}background-image: url({{ background_image }});{% endblock %}
+{% block page_name %}Recipe{% endblock %}
+
+<!-- Back Button -->
+{% block url_route %}/cookbook#recipe_list{% endblock %}
+{% block button_name %}Back to Cookbook{% endblock %}
+
+<!-- Details -->
+{% block details %}
+    <div class="row row-cols-1 row-cols-md-1 g-4">
+        <div class="card">
+            <h2 class="card-header text-center">{{ recipe_name }}</h2>
+            <div class="card-body">
+                <h4><b>Ingredients:</b></h4> <!-- Apparently p tag and span tag is different enough in terms of line and margin spacing -->
+                <div style="margin-left:0.5em;">
+                    {% for key, value in ingredient_dict.items %}
+                        <i>{{ key }}</i>
+                        <ul style="list-style-type:none;">
+                            {% for bullet_point in value %}
+                                {% if 'Substitutes' in bullet_point %}
+                                    <span style="margin-left:1em;">{{ bullet_point }}<span>
+                                {% else %}
+                                    {% if 'Optional:' in bullet_point or 'Alternative:' in bullet_point %}
+                                        <li><b>{{ bullet_point }}</b></li>
+                                    {% else %}
+                                        <li>{{ bullet_point }}</li>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    {% endfor %}
+                </div>
+
+                <h4><b>Preparation:</b></h4>
+                <div style="margin-left:0.5em;">
+                    {% for key, value in preparation_dict.items %}
+                        <i>{{ key }}</i>
+                        <ol>
+                            {% for bullet_point in value %}
+                                {% if bullet_point != '' %}
+                                    {% if ' ' not in bullet_point %}
+                                        <ul>
+                                            {% for sub_bullet in bullet_point %}
+                                                {% if 'Optional Step:' in sub_bullet or 'Alternate Step:' in sub_bullet %}
+                                                    <li><b>{{ sub_bullet }}</b></li>
+                                                {% else %}
+                                                    <li>{{ sub_bullet }}</li>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </ul>
+                                    {% else %}
+                                        {% if 'Optional Step:' in bullet_point or 'Alternate Step:' in bullet_point %}
+                                            <li><b>{{ bullet_point }}</b></li>
+                                        {% else %}
+                                            <li>{{ bullet_point }}</li>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </ol>
+                    {% endfor %}
+                </div>
+
+                <h4><b>Cooking Method:</b></h4>
+                <div style="margin-left:0.5em;">
+                    {% for key, value in cooking_method_dict.items %}
+                        <i>{{ key }}</i>
+                        <ol>
+                            {% for bullet_point in value %}
+                                {% if bullet_point != '' %}
+                                    {% if ' ' not in bullet_point %}
+                                        <ul>
+                                            {% for sub_bullet in bullet_point %}
+                                                {% if 'Optional Step:' in sub_bullet or 'Alternate Step:' in sub_bullet %}
+                                                    <li><b>{{ sub_bullet }}</b></li>
+                                                {% else %}
+                                                    <li>{{ sub_bullet }}</li>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </ul>
+                                    {% else %}
+                                        {% if 'Optional Step:' in bullet_point or 'Alternate Step:' in bullet_point %}
+                                            <li><b>{{ bullet_point }}</b></li>
+                                        {% else %}
+                                            <li>{{ bullet_point }}</li>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </ol>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+<!-- End Body -->

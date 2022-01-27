@@ -1,0 +1,170 @@
+/* Everytime you change your CSS code, you have to press CTRL + F5 in your browser for
+it to register the changes in your CSS, because your browser usually cached old CSS and will reload that
+despite the changes to your current CSS, so you have to force your browser to refresh its cache everytime you
+change your CSS stylesheet */
+
+/* Custom-made 2+ words CSS class and id names are separated by '_' instead of '-'
+to differentiate between custom-made names and pre-defined names from Bootstrap */
+
+body {
+    background-color: #DDE2E3; /*Current Frost color*/
+    font-family:'Josefin Sans';
+    /*font-size: 30px;*/
+}
+
+.card {
+    background-color: #F1E8E4;
+}
+
+/* Alternate background color for different sections, but currently not in use because
+it looks ugly */
+.alt-color {
+    position: relative;
+    padding-bottom: 2em;
+}
+
+.alt-color::before {
+    content: '';
+    background-color: #F4D1AE;
+    color: white;
+    position: absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    width: 200vw;
+    /*margin-left: -50%; */
+    transform: translateX(-50%);
+    z-index: -1;
+}
+
+#grid {
+    display: grid;
+    row-gap: 2rem;
+}
+
+.page_content {
+    animation: transitionIn 1s;
+}
+
+@keyframes transitionIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+summary {
+    padding: 1em;
+    background: #B37C57;
+    color:#FFFDE7;
+    margin-bottom: 1em;
+    border-radius: 0.8em;
+    transition: background-color 0.3s;
+}
+
+summary:hover {
+    background: #60412B;
+}
+
+details[open] summary ~ * {
+    animation: sweep 0.25s ease-in-out;
+}
+
+@keyframes sweep {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+footer {
+    background-color: #3C455C;
+}
+
+#jumbotron_image {
+    height: 50vh;
+}
+
+#project_pp {
+    height: 20em;
+}
+
+#recipe_image {
+    height: 25em;
+}
+
+#book_genre_image {
+    height: 20em;
+}
+
+#book_image {
+    height: 100%;
+    width: 100%;
+}
+
+/* Media screen for iPad Pro */
+@media screen and (max-width: 1050px) {
+    #project_pp {
+        height: 16em;
+    }
+
+    #recipe_image {
+        height: 17em;
+    }
+
+    #book_genre_image {
+        height: 15em;
+    }
+}
+
+/* Media screen for normal iPad */
+@media screen and (max-width: 770px) {
+    #project_pp {
+        height: 12em;
+    }
+
+    #recipe_image {
+        height: 13em;
+    }
+
+    #book_genre_image {
+        height: 12em;
+    }
+}
+
+/* Media screen for iPhone */
+@media screen and (max-width: 430px) {
+    #jumbotron_image {
+        height: 37vh;
+    }
+
+    #project_pp {
+        height: 15em;
+    }
+
+    #recipe_image {
+        height: 15em;
+    }
+
+    #book_genre_image {
+        height: 13em;
+    }
+
+    #book_image {
+        height: 80%; /* Shortening the height of the book image for iphones */
+    }
+
+    #book_review_content {
+        margin-top: -5.5em; /* To match the shortened height of the book image to look better
+                                80% height is equivalent to -5.5em margin-top */
+    }
+}

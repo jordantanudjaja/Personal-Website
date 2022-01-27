@@ -1,0 +1,73 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+<!-- Head -->
+{% block title %} Library Page {% endblock %}
+<!-- End Head -->
+
+<!-- Body -->
+<!-- Nav bar with current page emphasis -->
+{% block page_highlight %}
+    <li class="nav-item px-4">
+        <a class="nav-link" href="/">Home</a>
+    </li>
+    <li class="nav-item px-4">
+        <a class="nav-link" href="/about">About</a>
+    </li>
+    <li class="nav-item px-4">
+        <a class="nav-link" href="/projects">Projects</a>
+    </li>
+    <li class="nav-item px-4">
+        <a class="nav-link" href="/cookbook">Cookbook</a>
+    </li>
+    <li class="nav-item px-4">
+        <a class="nav-link" href="/photography">Photography</a>
+    </li>
+    <li class="nav-item px-4">
+        <a class="nav-link active" aria-current="page" href="/library">Library</a>
+    </li>
+    <li class="nav-item px-4">
+        <a class="nav-link" href="/experience">Experience</a>
+    </li>
+{% endblock %}
+
+<!-- Header -->
+{% block bg_image %}background-image: url('https://mdbootstrap.com/img/new/slides/130.jpg');{% endblock %}
+{% block page_title %}Library{% endblock %}
+{% block subtitle %}A personal reading list that I use to keep track of the books I've read{% endblock %}
+
+<!-- Main Content -->
+{% block content %}
+    <!-- Inspirational Quote -->
+    <div class="card mb-3">
+        <div class="row g-0">
+            <div class="col-md-8">
+                <img src="{% static 'images/Quotes/Library Quote pic.jpg' %}" class="img-fluid rounded-start"/>
+            </div>
+            <div class="col-md-4">
+                <div class="card-body text-start">
+                    <h1 class="card-title" style="font-size:clamp(1em, 3vw, 3em); font-family:'Impact';"><i>The aim of education is the knowledge, not of facts, but of values.</i></h1>
+                    <p class="card-text" style="font-size:clamp(0.75em, 1.5vw, 1.5em); font-family:'Arial';">- William Inge</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Book genres -->
+    <div id="book_genres" class="row row-cols-1 row-cols-md-3 g-4">
+        {% for genre in hobby_summary %}
+            <div class="col">
+                <a href="{{ genre.hyperlink }}">
+                    <div class="card h-100">
+                        <img id="book_genre_image" src="{{ genre.profile_picture.url }}" class="card-img-top"/>
+                        <div class="card-body text-center">
+                            <h5 class="card-title" style="font-size:clamp(1em, 1.5vw, 1.5em);"><b>{{ genre.title }}</b></h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+    <!-- End of Book categories -->
+{% endblock %}
+<!-- End Body -->

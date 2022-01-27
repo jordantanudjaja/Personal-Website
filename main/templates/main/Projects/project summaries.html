@@ -1,0 +1,88 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+<!-- Head -->
+{% block title %} Projects Page {% endblock %}
+<!-- End Head -->
+
+<!-- Body -->
+<!-- Nav bar with current page emphasis -->
+{% block page_highlight %}
+    <li class="nav-item px-4">
+        <a class="nav-link" href="/">Home</a>
+    </li>
+    <li class="nav-item px-4">
+        <a class="nav-link" href="/about">About</a>
+    </li>
+    <li class="nav-item px-4">
+        <a class="nav-link active" aria-current="page" href="/projects">Projects</a>
+    </li>
+    <li class="nav-item px-4">
+        <a class="nav-link" href="/cookbook">Cookbook</a>
+    </li>
+    <li class="nav-item px-4">
+        <a class="nav-link" href="/photography">Photography</a>
+    </li>
+    <li class="nav-item px-4">
+        <a class="nav-link" href="/library">Library</a>
+    </li>
+    <li class="nav-item px-4">
+        <a class="nav-link" href="/experience">Experience</a>
+    </li>
+{% endblock %}
+
+<!-- Header -->
+{% block bg_image %}background-image: url('https://mdbootstrap.com/img/new/slides/056.jpg');{% endblock %}
+{% block page_title %}Personal Projects{% endblock %}
+{% block subtitle %}A list of my coding projects that I ocassionally do for fun{% endblock %}
+
+<!-- Main Content -->
+{% block content %}
+    <!-- Inspirational Quote -->
+    <div class="card mb-3">
+        <div class="row g-0">
+            <div class="col-md-8">
+                <img src="{% static 'images/Quotes/Project Quote pic.jpg' %}" class="img-fluid rounded-start"/>
+            </div>
+            <div class="col-md-4">
+                <div class="card-body text-start">
+                    <h1 class="card-title" style="font-size:clamp(1em, 3vw, 3em); font-family:'Impact';"><i>Creativity is thinking up new things. Innovation is doing new things.</i></h1>
+                    <p class="card-text" style="font-size:clamp(0.75em, 1.5vw, 1.5em); font-family:'Arial';">- Theodore Levitt</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- List of Projects -->
+    <div id="project_list" class="row row-cols-1 row-cols-md-3 g-4"> <!-- row-cols-md-x shows x number of columns -->
+        {% for project in hobby_summary %}
+            <div class="col">
+                <div class="card h-100">
+                    <a href="{{ project.hyperlink }}">
+                        <img id="project_pp" src="{{ project.project_picture.url }}" class="card-img-top"/>
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-size:clamp(1em, 1.5vw, 1.5em);"><b>{{ project.title }}</b></h5>
+                    </a>
+                            <p class="card-text text-start" style="font-size:clamp(0.7em, 1.35vw, 1em);">{{ project.summary }}</p>
+                            <p class="card-footer text-start" style="font-size:clamp(0.7em, 1.35vw, 1em);">
+                                <small>Github Link: <a href="{{ project.github_link }}" target="_blank" rel="noopener noreferrer">{{ project.title }}</a></small>
+                                <br>
+                                {% if project.additional_links != "" %}
+                                    <small class="text-start">
+                                        <span>Additional Links:</span>
+                                        <ol style="margin-top:-1.5em;">
+                                            {% for key, value in project.link_converter.items %}
+                                                <li style="font-size:clamp(0.7em, 1.35vw, 1em);"><a href="{{ value }}" target="_blank" rel="noopener noreferrer">{{ key }}</a></li>
+                                            {% endfor %}
+                                        </ol>
+                                    </small>
+                                {% endif %}
+                            </p>
+                        </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <!-- End of Project list -->
+{% endblock %}
+<!-- End Body -->

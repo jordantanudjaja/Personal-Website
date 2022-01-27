@@ -1,0 +1,35 @@
+{% extends 'main/detailsbase.html' %}
+
+<!-- Head -->
+{% block title %}Photo List Page{% endblock %}
+<!-- End Head -->
+
+<!-- Body -->
+<!-- Header -->
+{% block bg_image %}background-image: url({{ background_image }});{% endblock %}
+{% block page_name %}{{ photo_category }}{% endblock %}
+
+<!-- Back Button -->
+{% block url_route %}/photography#photo_categories{% endblock %}
+{% block button_name %}Back to Photography{% endblock %}
+
+<!-- Details -->
+{% block details %}
+    <div class="lightbox row row-cols-1 row-cols-md-2 g-4">
+        {% for photo in photos %}
+            <div class="col">
+                <img src="{{ photo.picture.url }}" class="w-100 mb-2 mb-md-4"/>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block additional_scripts %}
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+    <script type="text/javascript">
+        mediumZoom(document.querySelectorAll('.zoom'), {
+        })
+    </script> -->
+{% endblock %}
+<!-- End Body -->

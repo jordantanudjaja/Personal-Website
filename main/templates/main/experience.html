@@ -1,0 +1,191 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% load experience_class_tags %}
+
+<!-- Head -->
+{% block title %} Experience Page {% endblock %}
+
+{% block additional_styling %}
+    h4 {
+        font-size: clamp(1em, 2vw, 2em);
+    }
+
+    h5 {
+        font-size: clamp(0.9em, 2vw, 1.7em);
+    }
+
+    p, ul, span {
+        font-size: clamp(0.7rem, 1vw, 1.2rem);
+    }
+{% endblock %}
+<!-- End Head -->
+
+<!-- Body -->
+<!-- Nav bar with current page emphasis -->
+{% block page_highlight %}
+    <li class="nav-item px-4">
+        <a class="nav-link" href="/">Home</a>
+    </li>
+    <li class="nav-item px-4">
+        <a class="nav-link" href="/about">About</a>
+    </li>
+    <li class="nav-item px-4">
+        <a class="nav-link" href="/projects">Projects</a>
+    </li>
+    <li class="nav-item px-4">
+        <a class="nav-link" href="/cookbook">Cookbook</a>
+    </li>
+    <li class="nav-item px-4">
+        <a class="nav-link" href="/photography">Photography</a>
+    </li>
+    <li class="nav-item px-4">
+        <a class="nav-link" href="/library">Library</a>
+    </li>
+    <li class="nav-item px-4">
+        <a class="nav-link active" aria-current="page" href="/experience">Experience</a>
+    </li>
+{% endblock %}
+
+<!-- Header -->
+{% block bg_image %}background-image: url('https://mdbootstrap.com/img/new/slides/060.jpg');{% endblock %}
+{% block page_title %}Professional Experience{% endblock %}
+{% block subtitle %}Roche | Novo Nordisk | FreshDirect | Fesarius Therapeutics{% endblock %}
+
+<!-- Main Content -->
+{% block content %}
+    <!-- List of Work Experience -->
+    <div id="work-experience">
+        <div class="row row-cols-1 row-cols-md-1 g-4">
+            <h2><b>Work Experience</b></h2>
+        </div>
+        {% for experience in work_experience %}
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img src="{{ experience.organization_logo.url }}" class="rounded mx-auto d-block" style="width:100%; height:100%;">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4><b>Role:</b> {{ experience.role }}</h4>
+
+                            <h4><b>Duration:</b> {{ experience.date_parser|dict_parser:"start_month" }} {{ experience.date_parser|dict_parser:"start_year" }} -
+                            {{ experience.date_parser|dict_parser:"end_month" }} {{ experience.date_parser|dict_parser:"end_year" }}</h4>
+                            <br>
+
+                            <details>
+                                <summary><h4 style="display:inline;"><b>Background Information</b></h4></summary>
+                                <p>{{ experience.background }}</p>
+                            </details>
+
+                            <details>
+                                <summary><h4 style="display:inline;"><b>Tasks</b></h4></summary>
+                                <ul class="text-start" style="list-style-position:inside;">
+                                    {% for bullet_point in experience|list_preprocessor:"tasks" %}
+                                        <li>{{ bullet_point }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </details>
+
+                            <details>
+                                <summary><h4 style="display:inline;"><b>Results</b></h4></summary>
+                                <ul class="text-start" style="list-style-position:inside;">
+                                  {% for bullet_point in experience|list_preprocessor:"results" %}
+                                      <li>{{ bullet_point }}</li>
+                                  {% endfor %}
+                                </ul>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- List of Volunteer Experience -->
+    <div id="volunteer-experience">
+        <div class="row row-cols-1 row-cols-md-1 g-4">
+            <h2><b>Volunteer Experience</b></h2>
+        </div>
+        {% for experience in volunteer_experience %}
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img src="{{ experience.organization_logo.url }}" class="rounded mx-auto d-block" style="width:100%; height:100%;">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4><b>Role:</b> {{ experience.role }}</h4>
+
+                            <h4><b>Duration:</b> {{ experience.date_parser|dict_parser:"start_month" }} {{ experience.date_parser|dict_parser:"start_year" }} -
+                            {{ experience.date_parser|dict_parser:"end_month" }} {{ experience.date_parser|dict_parser:"end_year" }}</h4>
+                            <br>
+
+                            <details>
+                                <summary><h4 style="display:inline;"><b>Background Information</b></h4></summary>
+                                <p>{{ experience.background }}</p>
+                            </details>
+
+                            <details>
+                                <summary><h4 style="display:inline;"><b>Tasks</b></h4></summary>
+                                <ul class="text-start" style="list-style-position: inside;">
+                                    {% for bullet_point in experience|list_preprocessor:"tasks" %}
+                                        <li>{{ bullet_point }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </details>
+
+                            <details>
+                                <summary><h4 style="display:inline;"><b>Results</b></h4></summary>
+                                <ul class="text-start" style="list-style-position: inside;">
+                                  {% for bullet_point in experience|list_preprocessor:"results" %}
+                                      <li>{{ bullet_point }}</li>
+                                  {% endfor %}
+                                </ul>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Education -->
+    <div id="education">
+        <div class="row row-cols-1 row-cols-md-1 g-4">
+            <h2><b>Education</b></h2>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{% static 'images/Experience/Columbia Logo.jpg' %}" class="card-img-top" style="height:20em;"/>
+                    <div class="card-body">
+                        <h4 class="card-title"><b>Columbia University</b></h4>
+                        <p>Fu Foundation School of Engineering and Applied Science</p>
+
+                        <h5><b>Degrees</b></h5>
+                        <span>M.S in Management Science and Engineering</span>
+                        <br>
+                        <span>B.S in Chemical Engineering</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{% static 'images/Experience/Fordham Logo.jpg' %}" class="card-img-top" style="height:20em;"/>
+                    <div class="card-body">
+                        <h4 class="card-title"><b>Fordham University</b></h4>
+                        <p>Fordham College at Rose Hill</p>
+
+                        <h5><b>Degrees</b></h5>
+                        <span>B.S in Chemistry</span>
+                        <br>
+                        <span>Minor in Mathematics</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+<!-- End Body -->

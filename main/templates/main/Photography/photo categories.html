@@ -1,0 +1,73 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+<!-- Head -->
+{% block title %} Photography {% endblock %}
+<!-- End Head -->
+
+<!-- Body -->
+<!-- Nav bar with current page emphasis -->
+{% block page_highlight %}
+    <li class="nav-item px-4">
+        <a class="nav-link" href="/">Home</a>
+    </li>
+    <li class="nav-item px-4">
+        <a class="nav-link" href="/about">About</a>
+    </li>
+    <li class="nav-item px-4">
+        <a class="nav-link" href="/projects">Projects</a>
+    </li>
+    <li class="nav-item px-4">
+        <a class="nav-link" href="/cookbook">Cookbook</a>
+    </li>
+    <li class="nav-item px-4">
+        <a class="nav-link active" aria-current="page" href="/photography">Photography</a>
+    </li>
+    <li class="nav-item px-4">
+        <a class="nav-link" href="/library">Library</a>
+    </li>
+    <li class="nav-item px-4">
+        <a class="nav-link" href="/experience">Experience</a>
+    </li>
+{% endblock %}
+
+<!-- Header -->
+{% block bg_image %}background-image: url('https://mdbootstrap.com/img/new/slides/010.jpg');{% endblock %}
+{% block page_title %}Photography{% endblock %}
+{% block subtitle %}A compilation of photos of nature and landmarks{% endblock %}
+
+<!-- Main Content -->
+{% block content %}
+    <!-- Inspirational Quote -->
+    <div class="card mb-3">
+        <div class="row g-0">
+            <div class="col-md-8">
+                <img src="{% static 'images/Quotes/Photography Quote pic.jpg' %}" class="img-fluid rounded-start"/>
+            </div>
+            <div class="col-md-4">
+                <div class="card-body text-start">
+                    <h1 class="card-title" style="font-size:clamp(1em, 3vw, 3em); font-family:'Impact';"><i>Taking pictures is savoring life intensely, every hundredth of a second.</i></h1>
+                    <p class="card-text" style="font-size:clamp(0.75em, 1.5vw, 1.5em); font-family:'Arial';">- Marc Riboud</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <!-- Photo categories -->
+      <div id="photo_categories" class="row row-cols-1 row-cols-md-3 g-4">
+          {% for category in hobby_summary %}
+              <div class="col">
+                  <a href="{{ category.hyperlink }}">
+                      <div class="card h-100">
+                          <img src="{{ category.profile_picture.url }}" class="card-img-top"/>
+                          <div class="card-body text-center">
+                              <h5 class="card-title" style="font-size:clamp(1em, 1.5vw, 1.5em);"><b>{{ category.title }}</b></h5>
+                          </div>
+                      </div>
+                  </a>
+              </div>
+          {% endfor %}
+      </div>
+      <!-- End of Photo categories -->
+{% endblock %}
+<!-- End Body -->
