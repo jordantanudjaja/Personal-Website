@@ -1,7 +1,7 @@
 import os
 
 SECRET_KEY = os.environ.get('SECRET_KEY_PROD')
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ['127.0.0.1', 'jordantanudjaja.herokuapp.com']
 
 # AWS S3 parameters
