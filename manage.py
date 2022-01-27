@@ -7,7 +7,11 @@ import dotenv
 
 def main():
     """Run administrative tasks."""
-    dotenv.read_dotenv() # Might need to comment this out once we deploy to heroku?
+    try:
+        dotenv.read_dotenv() # Might need to comment this out once we deploy to heroku?
+    except:
+        pass
+    
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
     try:
         from django.core.management import execute_from_command_line
