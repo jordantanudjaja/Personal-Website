@@ -22,6 +22,7 @@ Back-end:
 <h1>Directory</h1>
 <h2>main</h2>
 - The main app that contains the html templates that are rendered, the unit test files, and the backend python files that create the functionality
+of each website component
 
 <h2>media/images</h2>
 - Contains the media images that are uploaded, and stored in AWS S3
