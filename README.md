@@ -1,6 +1,6 @@
 # Personal-Website
-This is my very own Personal Website that I built using the Django framework in Python. It serves as a digital journal filled
-with most of my hobbies, interests, and professional experiences. The files uploaded here are stored in Heroku Postgre and 
+This is my own Personal Website that I built using the Django framework in Python. It serves as a digital journal filled
+with most of my hobbies, interests, and experiences. The files uploaded here are stored in Heroku Postgre and 
 AWS S3 for media files. 
 
 Potential improvements: Lightbox implementation for the Photography section, and better animations such as page transitions.
