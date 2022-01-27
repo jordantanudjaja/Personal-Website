@@ -1,5 +1,5 @@
 import os
-import dj_databse_url
+import dj_database_url
 
 SECRET_KEY = os.environ.get('SECRET_KEY_PROD')
 DEBUG = True
@@ -12,7 +12,7 @@ DATABASES = {   # Taken from base.py
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-db_from_env = dj_databse_url.config(conn_max_age=600)
+db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES['default'].update(db_from_env) # Updating DATABASES to include the Postgres database set to me by Heroku
 
 # AWS S3 parameters
