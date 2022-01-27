@@ -21,14 +21,14 @@ Back-end:
 
 <h1>Directory</h1>
 <h2>main</h2>
-- The main app that contains the html templates that are rendered, the unit test files, and the backend python files that create the functionality
-of each website component
+<p>- The main app that contains the html templates that are rendered, the unit test files, and the backend python files that create the functionality
+of each website component</p>
 
 <h2>media/images</h2>
-- Contains the media images that are uploaded, and stored in AWS S3
+<p>- Contains the media images that are uploaded, and stored in AWS S3</p>
 
 <h2>mysite</h2>
-- Contains the python files responsible for configuration and settings for both the development and production aspects of the website
+<p>- Contains the python files responsible for configuration and settings for both the development and production aspects of the website</p>
 
 <h2>static</h2>
-- Contains the CSS files and static images that are collected and stored in the Django app via WhiteNoise 5.3.0
+<p>- Contains the CSS files and static images that are collected and stored in the Django app via WhiteNoise 5.3.0</p>
