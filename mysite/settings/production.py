@@ -1,4 +1,5 @@
 import os
+import django_heroku
 
 SECRET_KEY = os.environ.get('SECRET_KEY_PROD')
 DEBUG = True
@@ -20,3 +21,5 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 # SECURE_HSTS_SECONDS = 31536000 # 1 year
 # SECURE_HSTS_PRELOAD = True
 # SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+
+django_heroku.settings(locals()) # For my website to talk to Production Postgres database
