@@ -5,8 +5,7 @@ AWS S3 for media files.
 
 Potential improvements: Lightbox implementation for the Photography section, and better animations such as page transitions.
 
-<b>Tools Used:</b>
-<br>
+<h3>Tools Used:</h3>
 Front-end:
 <ul>
   <li>HTML5</li>
@@ -20,7 +19,7 @@ Back-end:
   <li>Django 3.2.7</li>
 </ul>
 
-<h1>Personal Website Directory</h1>
+<h1>Directory</h1>
 <h2>main</h2>
 - The main app that contains the html templates that are rendered, the unit test files, and the backend python files that create the functionality
 
