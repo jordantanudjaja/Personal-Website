@@ -7,10 +7,11 @@ import dotenv
 
 def main():
     """Run administrative tasks."""
-    # try:
-    #     dotenv.read_dotenv() # Might need to comment this out once we deploy to heroku?
-    # except:
-    #     pass
+
+    if os.environ.get('STATUS') == 'Development':
+        dotenv.read_dotenv() # Need to get environment variables from local .env file during development
+    else:
+        pass # In production, the environment variables are already set in Heroku
 
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
     try:
