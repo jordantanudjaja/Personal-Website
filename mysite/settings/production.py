@@ -4,7 +4,7 @@ import os
 # The environment variables will no longer be taken from the .env file but from Heroku's environment settings
 
 SECRET_KEY = os.environ.get('SECRET_KEY_PROD')
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['jordantanudjaja.herokuapp.com', 'www.jordantanudjaja.herokuapp.com']
 
 # AWS S3 parameters
