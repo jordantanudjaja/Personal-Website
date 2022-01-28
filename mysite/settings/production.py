@@ -5,7 +5,7 @@ import os
 
 SECRET_KEY = os.environ.get('SECRET_KEY_PROD')
 DEBUG = False
-ALLOWED_HOSTS = ['jordantanudjaja.herokuapp.com']
+ALLOWED_HOSTS = ['jordantanudjaja.herokuapp.com', 'www.jordantanudjaja.herokuapp.com']
 
 # AWS S3 parameters
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
