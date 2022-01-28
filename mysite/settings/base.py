@@ -131,7 +131,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # For Production purposes (n
 STATIC_URL = '/static/'
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage' # The commented out whitenoise STATICFILES_STORAGE do not work in deployment at Heroku with Debug = FALSE
+                                                                              # This is probably due to my CSS files referencing other files (images or fonts) which does not exist at that path
+#STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+# The Manifest storage above is commented out because it running python tests.py will not work with the Manifest version
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
