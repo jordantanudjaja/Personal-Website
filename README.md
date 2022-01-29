@@ -1,6 +1,6 @@
 # Personal-Website
-This is my own Personal Website (www.jordantanudjaja.com) that I built using the Django framework in Python. It serves as a digital journal filled
-with most of my hobbies, interests, and experiences. The files uploaded here are stored in Heroku PostgreSQL database and AWS S3 for media files. 
+This is my own Personal Website (www.jordantanudjaja.com) that I built using the Django framework in Python, and deployed in Heroku. It serves as a digital 
+journal filled with most of my hobbies, interests, and experiences. The files uploaded here are stored in Heroku PostgreSQL database and AWS S3 for media files. 
 
 Potential improvements: Lightbox implementation for the Photography section, and better animations such as page transitions.
 
