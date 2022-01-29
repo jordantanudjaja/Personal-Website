@@ -47,7 +47,7 @@
             <div class="col-md-4">
                 <div class="card-body text-start">
                     <h1 class="card-title" style="font-size:clamp(1em, 3vw, 3em); font-family:'Impact';"><i>Creativity is thinking up new things. Innovation is doing new things.</i></h1>
-                    <p class="card-text" style="font-size:clamp(0.75em, 1.5vw, 1.5em); font-family:'Arial';">- Theodore Levitt</p>
+                    <p class="card-text" style="font-size:clamp(0.8em, 1.5vw, 1.5em); font-family:'Arial';">- Theodore Levitt</p>
                 </div>
             </div>
         </div>
@@ -63,8 +63,8 @@
                         <div class="card-body">
                             <h5 class="card-title" style="font-size:clamp(1em, 1.5vw, 1.5em);"><b>{{ project.title }}</b></h5>
                     </a>
-                            <p class="card-text text-start" style="font-size:clamp(0.7em, 1.35vw, 1em);">{{ project.summary }}</p>
-                            <p class="card-footer text-start" style="font-size:clamp(0.7em, 1.35vw, 1em);">
+                            <p class="card-text text-start" style="font-size:clamp(0.8em, 1.35vw, 1em);">{{ project.summary }}</p>
+                            <p class="card-footer text-start" style="font-size:clamp(0.8em, 1.35vw, 1em);">
                                 <small>Github Link: <a href="{{ project.github_link }}" target="_blank" rel="noopener noreferrer">{{ project.title }}</a></small>
                                 <br>
                                 {% if project.additional_links != "" %}
@@ -72,7 +72,7 @@
                                         <span>Additional Links:</span>
                                         <ol style="margin-top:-1.5em;">
                                             {% for key, value in project.link_converter.items %}
-                                                <li style="font-size:clamp(0.7em, 1.35vw, 1em);"><a href="{{ value }}" target="_blank" rel="noopener noreferrer">{{ key }}</a></li>
+                                                <li style="font-size:clamp(0.8em, 1.35vw, 1em);"><a href="{{ value }}" target="_blank" rel="noopener noreferrer">{{ key }}</a></li>
                                             {% endfor %}
                                         </ol>
                                     </small>
