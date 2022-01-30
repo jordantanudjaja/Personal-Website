@@ -5,7 +5,7 @@
 
 {% block additional_styling %}
     h2 {
-        font-size: clamp(1em, 2vw, 2em);
+        font-size: clamp(2em, 3vw, 3em);
     }
 
     h4 {
@@ -26,7 +26,7 @@
 <!-- Body -->
 <!-- Header -->
 {% block bg_image %}background-image: url({{ background_image }});{% endblock %}
-{% block page_name %}Recipe{% endblock %}
+{% block page_name %}{{ recipe_name }}{% endblock %}
 
 <!-- Back Button -->
 {% block url_route %}/cookbook#recipe_list{% endblock %}
@@ -36,7 +36,7 @@
 {% block details %}
     <div class="row row-cols-1 row-cols-md-1 g-4">
         <div class="card">
-            <h2 class="card-header text-center">{{ recipe_name }}</h2>
+            <h2 class="card-header text-center">Recipe</h2>
             <div class="card-body">
                 <h4><b>Ingredients:</b></h4> <!-- Apparently p tag and span tag is different enough in terms of line and margin spacing -->
                 <div style="margin-left:0.5em;">
