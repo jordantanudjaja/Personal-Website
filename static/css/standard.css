@@ -16,28 +16,6 @@ body {
     background-color: #F1E8E4;
 }
 
-/* Alternate background color for different sections, but currently not in use because
-it looks ugly */
-.alt-color {
-    position: relative;
-    padding-bottom: 2em;
-}
-
-.alt-color::before {
-    content: '';
-    background-color: #F4D1AE;
-    color: white;
-    position: absolute;
-    top:0;
-    right:0;
-    bottom:0;
-    left:0;
-    width: 200vw;
-    /*margin-left: -50%; */
-    transform: translateX(-50%);
-    z-index: -1;
-}
-
 #grid {
     display: grid;
     row-gap: 2rem;
