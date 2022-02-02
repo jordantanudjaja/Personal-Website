@@ -27,7 +27,8 @@ body {
 
 .btn {
     font-family:'Arial';
-    font-size: clamp(0.7em, 0.9vw, 1.5em);
+    margin-bottom: 2em;
+    font-size: clamp(0.6em, 1vw, 1.5em);
 }
 
 .btn:hover {
